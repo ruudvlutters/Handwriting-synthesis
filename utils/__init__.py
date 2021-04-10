@@ -1,7 +1,7 @@
 import numpy
 import matplotlib
 
-matplotlib.use("AGG")
+#matplotlib.use("AGG")
 from matplotlib import pyplot
 
 
