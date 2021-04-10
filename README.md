@@ -1,48 +1,27 @@
 # Handwriting generation
-This project is a web app (CopyMonkey) which uses machine learning to mimic your handwriting style like a monkey. Have fun generating handwriting in your own style!
-
-Demo: https://youtu.be/Ghsb3w0QACI
+ML Cleanup of original https://github.com/swechhachoudhary/Handwriting-synthesis
 
 The ML model is implemented from "Generating Sequences With Recurrent Neural Networks" by Alex Graves (https://arxiv.org/abs/1308.0850)
 
-### How to run the web app on your local machine
+### How to create the environment on your local machine
 ```bash
-git clone https://github.com/swechhachoudhary/Handwriting-synthesis.git
-```
-
-```bash
+git clone https://github.com/ruudvlutters/Handwriting-synthesis.git```
 cd Handwriting-synthesis
-```
-
-```bash
-python3 -m venv hand_gen_env
-```
-```bash
-source hand_gen_env/bin/activate
-```
-
-```bash
-pip install -r requirements.txt
-```
-
-```bash
-python main.py
+conda env create -f environment.yml
+conda activate handwriting
 ```
 
 ### How to train handwriting generation (synthesis) model
-
 ```bash
 python train.py --n_epochs 120 --model synthesis --batch_size 64 --text_req
 ```
 
 ### How to train handwriting prediction model
-
 ```bash
 python train.py --n_epochs 120 --model prediction --batch_size 64
 ```
 
 ### Data description:
-
 There are 2 data files that you need to consider: `data.npy` and `sentences.txt`. `data.npy`contains 6000 sequences of points that correspond to handwritten sentences. `sentences.txt` contains the corresponding text sentences. You can see an example on how to load and plot an example sentence in `example.ipynb`. Each handwritten sentence is represented as a 2D array with T rows and 3 columns. T is the number of timesteps. The first column represents whether to interrupt the current stroke (i.e. when the pen is lifted off the paper). The second and third columns represent the relative coordinates of the new point with respect to the last point. Please have a look at the plot_stroke if you want to understand how to plot this sequence.
 
 ### Unconditional generation.

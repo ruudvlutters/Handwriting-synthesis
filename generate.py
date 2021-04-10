@@ -25,7 +25,7 @@ def argparser():
     parser.add_argument("--seq_len", type=int, default=400)
     parser.add_argument("--batch_size", type=int, default=1)
     parser.add_argument("--bias", type=float, default=10.0, help="bias")
-    parser.add_argument("--char_seq", type=str, default="This is real handwriting")
+    parser.add_argument("--char_seq", type=str, default="This is real handwriting by Ruud")
     parser.add_argument("--text_req", action="store_true")
     parser.add_argument("--prime", action="store_true")
     parser.add_argument("--is_map", action="store_true")
