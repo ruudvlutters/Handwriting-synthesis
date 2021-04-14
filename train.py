@@ -220,7 +220,7 @@ def train(
                 plt.colorbar()
                 plt.xlabel("time steps")
                 plt.yticks(
-                    np.arange(phi.shape[1]),
+                    np.arange(phi.shape[0]),
                     list("Hello world!  "),
                     rotation="horizontal",
                 )
@@ -257,6 +257,7 @@ if __name__ == "__main__":
     np.random.seed(args.seed)
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    print(device)
 
     print("Arguments: {}".format(args))
     model_type = args.model_type

@@ -124,7 +124,7 @@ def generate_conditional_sequence(
         prime=prime,
     )
 
-    length = len(text_mask.nonzero())
+    length = (text_mask>0).sum().item() #len(text_mask.nonzero())
     print("Input seq: ", "".join(idx_to_char(text[0].detach().cpu().numpy()))[:length])
     print("Length of input sequence: ", text[0].shape[0])
 
